@@ -1501,6 +1501,9 @@ public class JSONObject {
                     if (!d.isInfinite() && !d.isNaN()) {
                         return d;
                     }
+                } else if (initial == '0') {
+                    // Consider 0 prefixed values to be of type string
+                    return string;
                 } else {
                     Long myLong = new Long(string);
                     if (string.equals(myLong.toString())) {
